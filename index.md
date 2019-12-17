@@ -29,3 +29,6 @@ folgt.
 
 ## Zeitplan
 folgt.
+
+## Kursmaterial
+[https://github.com/millawell/bias-ml-dh](https://github.com/millawell/bias-ml-dh)
