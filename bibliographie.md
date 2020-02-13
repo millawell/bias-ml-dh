@@ -18,6 +18,8 @@
 * Zhang, B. H., Lemoine, B., und Mitchell, M. (2018): Mitigating unwanted biases with adversarial learning. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.
 * Zhao, J., Wang, T., Yatskar, M., Ordonez, V., und Chang, K. W. (2018): Gender bias in coreference resolution: Evaluation and debiasing methods. arXiv preprint arXiv:1804.06876.
 # 1800
+Übergang: Eun Seo Jo, Timnit Gebru.[Lessons from Archives: Strategies for Collecting Sociocultural Data in Machine Learning](https://arxiv.org/abs/1912.10389)
+
 # Social Media
 
 # Data
