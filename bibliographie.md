@@ -1,4 +1,5 @@
 # Intro
+* Abigail Z. Jacobs, Hanna Wallach. Measurement and Fairness. https://arxiv.org/abs/1912.05511
 * [Lessons from archives: strategies for collecting sociocultural data in machine learning](https://dl.acm.org/doi/abs/10.1145/3351095.3372829)
 * Bode, Katherine (Forthcoming 2020): Why You Can’t Model Away Bias, Modern Language Quarterly 81.1. preprint: katherinebode.files.wordpress.com/2019/08/mlq2019_preprintbode_why.pdf [letzter Zugriff 27. September 2019].
 # Detecting Bias
