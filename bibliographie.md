@@ -15,7 +15,17 @@
 # Mitigating Bias
 * [Reducing sentiment polarity for demographic attributes in word embeddings using adversarial learning](https://dl.acm.org/doi/abs/10.1145/3351095.3372837)
 * Bolukbasi, Tolga, Kai-Wei Chang, James Y Zou, Venkatesh Saligrama, und Adam T Kalai (2016): Man is to computer programmer as woman is to homemaker? debiasing word embeddings. Conference of NIPS.
+* A. Caliskan, J. J. Bryson, und A. Narayanan (2017): Semantics derived automatically from language corpora contain human-like biases. Science, 356(6334):183–186.
+* Y. Elazar und Y. Goldberg (2018). Adversarial removal of demographic attributes from text data. arXiv preprint arXiv:1808.06640.
 * Gonen, H. und Yoav Goldberg (2019): Lipstick on a Pig: Debiasing Methods Cover up Systematic Gender Biases in Word Embeddings But do not Remove Them. Conference of the NAACL.
+* K. Lu, P. Mardziel, F. Wu, P. Amancharla, und A. Datta. Gender bias in neural natural language processing (2018): arXiv preprint arXiv:1807.11714.
+* T. Manzini, Y. C. Lim, Y. Tsvetkov, und A. W. Black (2019): Black is to criminal as caucasian is to police: Detecting and removing multiclass bias in word embeddings. arXiv preprint arXiv:1904.04047
+* R. H. Maudslay, H. Gonen, R. Cotterell, und S. Teufel (2019): It’s all in the name: Mitigating gender bias with name-based counterfactual data substitution. arXiv preprint arXiv:1909.00871
+* T. Mikolov, I. Sutskever, K. Chen, G. S. Corrado, und J. Dean (2013): Distributed representations of words and phrases and their compositionality. Advances in Neural Information Processing Systems 26, pages 3111–3119. 
+* J. H. Park, J. Shin, und P. Fung (2018): Reducing gender bias in abusive language detection. arXiv preprint
+arXiv:1808.07231.
+* T. Sun, A. Gaut, S. Tang, Y. Huang, M. ElSherief, J. Zhao, D. Mirza, E. Belding, K.-W. Chang, und W. Y. Wang (2019):
+Mitigating gender bias in natural language processing: Literature review. arXiv preprint arXiv:1906.08976
 * Zhang, B. H., Lemoine, B., und Mitchell, M. (2018): Mitigating unwanted biases with adversarial learning. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.
 * Zhao, J., Wang, T., Yatskar, M., Ordonez, V., und Chang, K. W. (2018): Gender bias in coreference resolution: Evaluation and debiasing methods. arXiv preprint arXiv:1804.06876.
 # 1800
