@@ -79,3 +79,13 @@ def tokenize_data(comments, vocab, max_sentences=1000, REVIEWS=True):
 
     return word_seq
 
+
+def get_max_row(word_seq):
+    # returns the longest row to decide on padding
+
+    max_row = 0
+    for irow, row in enumerate(word_seq):
+        if len(row) > max_row:
+            max_row = len(row)
+
+    return max_row
