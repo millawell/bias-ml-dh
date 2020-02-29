@@ -3,6 +3,7 @@ import torch as tr
 from tqdm import tqdm
 from bisect import bisect_left
 import spacy
+from lxml import html
 nlp = spacy.load("en_core_web_sm")
 tokenizer = nlp.Defaults.create_tokenizer(nlp)
 
@@ -87,6 +88,9 @@ def get_link_from_identifier(id_):
         "twitter_sentiment_german": "https://drive.google.com/u/0/uc?id=19MSkWtA1AxH1BEVN12E4Lqwe4oNUm0jt&export=download",
         "twitter_thueringen_small": "https://drive.google.com/u/0/uc?id=1sXaz50VC3qXIqnBsLsMT5vThOjT0fslC&export=download",
         "twitter_thueringen": "https://drive.google.com/u/0/uc?id=18cgj5D81mheRv-9fpI7uh7rRyZYGbgWr&export=download",
+        "glove.6B.50d": "https://drive.google.com/uc?export=download&id=1S0ae8Q65ggjRqnK_NdzoMeuTGmMBIZXT",
+        
+    
     }
     return dict_[id_]
 
@@ -94,14 +98,15 @@ def get_suffix_from_identifier(id_):
     dict_ = {
         "amazon_sentiment_english": ".txt",
         "imdb_sentiment_english": ".txt",
-        "imdb_sentiment_english": ".txt",
+        "yelp_sentiment_english": ".txt",
         "twitter_sentiment_german": ".pkl",
         "twitter_thueringen_small": ".jsonl",
         "twitter_thueringen": ".jsonl",
+        "glove.6B.50d": ".txt",
     }
     return dict_[id_]
 
-def load_dataset(id_, password):
+def download_dataset(id_, password):
 
     import requests
     import os
@@ -121,7 +126,19 @@ def load_dataset(id_, password):
             os.makedirs(download_dir)
 
         with open(out_file, 'wb') as f:
-            f.write(requests.get(url).content)
+            answer = requests.get(url)
+            content = answer.content
+            cookies = answer.cookies
+
+            if len(content) < 1e4:
+                
+                tree = html.document_fromstring(content)
+                href = tree.get_element_by_id("uc-download-link").attrib["href"]
+                new_url = "https://drive.google.com/u/0"+href
+
+                content = requests.get(new_url, cookies=cookies.get_dict()).content
+                
+            f.write(content)
 
     result_file = os.path.join(download_dir, id_+get_suffix_from_identifier(id_))
 
