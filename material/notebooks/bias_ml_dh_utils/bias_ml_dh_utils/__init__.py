@@ -79,7 +79,6 @@ def tokenize_data(comments, vocab, max_sentences=1000, REVIEWS=True):
 
     return word_seq
 
-
 def get_link_from_identifier(id_):
     dict_ = {
         "amazon_sentiment_english": "https://drive.google.com/u/0/uc?id=1YWlDDxlK2IXQCQ8oywLg5Mc4JS7XxFrK&export=download",
@@ -131,3 +130,13 @@ def load_dataset(id_, password):
             fin.extractall(pwd=password, path=download_dir)
 
     return result_file
+
+def get_max_row(word_seq):
+    # returns the longest row to decide on padding
+
+    max_row = 0
+    for irow, row in enumerate(word_seq):
+        if len(row) > max_row:
+            max_row = len(row)
+
+    return max_row
