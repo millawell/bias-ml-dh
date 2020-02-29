@@ -79,3 +79,55 @@ def tokenize_data(comments, vocab, max_sentences=1000, REVIEWS=True):
 
     return word_seq
 
+
+def get_link_from_identifier(id_):
+    dict_ = {
+        "amazon_sentiment_english": "https://drive.google.com/u/0/uc?id=1YWlDDxlK2IXQCQ8oywLg5Mc4JS7XxFrK&export=download",
+        "imdb_sentiment_english": "https://drive.google.com/u/0/uc?id=1ZuPfdOgdeuSDWwhlgZveJfdKhg-9TYK7&export=download",
+        "yelp_sentiment_english": "https://drive.google.com/u/0/uc?id=1S2TMhBJQ9snj2ovbc2tA-C9aCVPmoXbW&export=download",
+        "twitter_sentiment_german": "https://drive.google.com/u/0/uc?id=19MSkWtA1AxH1BEVN12E4Lqwe4oNUm0jt&export=download",
+        "twitter_thueringen_small": "https://drive.google.com/u/0/uc?id=1sXaz50VC3qXIqnBsLsMT5vThOjT0fslC&export=download",
+        "twitter_thueringen": "https://drive.google.com/u/0/uc?id=18cgj5D81mheRv-9fpI7uh7rRyZYGbgWr&export=download",
+    }
+    return dict_[id_]
+
+def get_suffix_from_identifier(id_):
+    dict_ = {
+        "amazon_sentiment_english": ".txt",
+        "imdb_sentiment_english": ".txt",
+        "imdb_sentiment_english": ".txt",
+        "twitter_sentiment_german": ".pkl",
+        "twitter_thueringen_small": ".jsonl",
+        "twitter_thueringen": ".jsonl",
+    }
+    return dict_[id_]
+
+def load_dataset(id_, password):
+
+    import requests
+    import os
+    from zipfile import ZipFile
+
+    url = get_link_from_identifier(id_)
+
+    download_dir = os.path.join("data", id_)
+
+    if not os.path.exists("data"):
+        os.makedirs("data")
+
+
+    out_file = os.path.join(download_dir, id_+".zip")
+    if not os.path.exists(out_file):
+        if not os.path.exists(download_dir):
+            os.makedirs(download_dir)
+
+        with open(out_file, 'wb') as f:
+            f.write(requests.get(url).content)
+
+    result_file = os.path.join(download_dir, id_+get_suffix_from_identifier(id_))
+
+    if not os.path.exists(result_file):
+        with ZipFile(out_file) as fin:
+            fin.extractall(pwd=password, path=download_dir)
+
+    return result_file
