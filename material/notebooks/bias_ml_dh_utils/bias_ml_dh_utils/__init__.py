@@ -4,6 +4,7 @@ from tqdm import tqdm
 from bisect import bisect_left
 import spacy
 from lxml import html
+from getpass import getpass
 nlp = spacy.load("en_core_web_sm")
 tokenizer = nlp.Defaults.create_tokenizer(nlp)
 
@@ -80,19 +81,19 @@ def tokenize_data(comments, vocab, max_sentences=1000, REVIEWS=True):
 
     return word_seq
 
-def get_link_from_identifier(id_):
-    dict_ = {
-        "amazon_sentiment_english": "https://drive.google.com/u/0/uc?id=1YWlDDxlK2IXQCQ8oywLg5Mc4JS7XxFrK&export=download",
-        "imdb_sentiment_english": "https://drive.google.com/u/0/uc?id=1ZuPfdOgdeuSDWwhlgZveJfdKhg-9TYK7&export=download",
-        "yelp_sentiment_english": "https://drive.google.com/u/0/uc?id=1S2TMhBJQ9snj2ovbc2tA-C9aCVPmoXbW&export=download",
-        "twitter_sentiment_german": "https://drive.google.com/u/0/uc?id=19MSkWtA1AxH1BEVN12E4Lqwe4oNUm0jt&export=download",
-        "twitter_thueringen_small": "https://drive.google.com/u/0/uc?id=1sXaz50VC3qXIqnBsLsMT5vThOjT0fslC&export=download",
-        "twitter_thueringen": "https://drive.google.com/u/0/uc?id=18cgj5D81mheRv-9fpI7uh7rRyZYGbgWr&export=download",
-        "glove.6B.50d": "https://drive.google.com/uc?export=download&id=1S0ae8Q65ggjRqnK_NdzoMeuTGmMBIZXT",
-        
-    
+
+data_identifier_dict = {
+        "amazon_sentiment_english": "https://drive.google.com/u/0/uc?id=1FdsOuba3skNR1cL6m_jfD6Mfw4QW6fg2&export=download",
+        "imdb_sentiment_english": "https://drive.google.com/u/0/uc?id=1rsy4Vj1Rlj3V5uvhfLryIPVYHmbf8dgL&export=download",
+        "yelp_sentiment_english": "https://drive.google.com/u/0/uc?id=15tioKwjp0azhpFBzOeX_PpbzKnYvp6RT&export=download",
+        "twitter_sentiment_german": "https://drive.google.com/u/0/uc?id=1avB1Ot50782TfOmVDtEZOUms1LNdD-Vu&export=download",
+        "twitter_thueringen_small": "https://drive.google.com/u/0/uc?id=1NZt6qxkDlCA9VzM-icr5EjA3i4Mk_8Rs&export=download",
+        # "twitter_thueringen": "https://drive.google.com/u/0/uc?id=18cgj5D81mheRv-9fpI7uh7rRyZYGbgWr&export=download",
+        "glove.6B.50d": "https://drive.google.com/uc?export=download&id=18CJHOYJqDe3RjNa7dS9pWZM1Vp3R3lo9",
+        "agression_comments_wikipedia": "https://drive.google.com/uc?export=download&id=1biF6BoNJxnuAzwybadqEeHlEKeSBGGn8",
     }
-    return dict_[id_]
+def get_link_from_identifier(id_):
+    return data_identifier_dict[id_]
 
 def get_suffix_from_identifier(id_):
     dict_ = {
@@ -103,10 +104,11 @@ def get_suffix_from_identifier(id_):
         "twitter_thueringen_small": ".jsonl",
         "twitter_thueringen": ".jsonl",
         "glove.6B.50d": ".txt",
+        "agression_comments_wikipedia": ".pkl",
     }
     return dict_[id_]
 
-def download_dataset(id_, password):
+def download_dataset(id_, password=None):
 
     import requests
     import os
@@ -120,7 +122,7 @@ def download_dataset(id_, password):
         os.makedirs("data")
 
 
-    out_file = os.path.join(download_dir, id_+".zip")
+    out_file = os.path.join(download_dir, id_+get_suffix_from_identifier(id_)+".zip")
     if not os.path.exists(out_file):
         if not os.path.exists(download_dir):
             os.makedirs(download_dir)
@@ -143,6 +145,9 @@ def download_dataset(id_, password):
     result_file = os.path.join(download_dir, id_+get_suffix_from_identifier(id_))
 
     if not os.path.exists(result_file):
+        if password is None:
+            password = getpass("password for extracting zip: ")
+            password = bytes(password, "utf-8")
         with ZipFile(out_file) as fin:
             fin.extractall(pwd=password, path=download_dir)
 
