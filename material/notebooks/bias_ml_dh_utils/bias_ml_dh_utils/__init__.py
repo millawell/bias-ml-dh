@@ -8,7 +8,7 @@ from getpass import getpass
 nlp = spacy.load("en_core_web_sm")
 tokenizer = nlp.Defaults.create_tokenizer(nlp)
 
-def __index(a, x):
+def index_sorted_list(a, x):
     'Locate the leftmost value exactly equal to x'
     i = bisect_left(a, x)
     if i != len(a) and a[i] == x:
@@ -16,20 +16,29 @@ def __index(a, x):
     raise ValueError
 
 
-def create_embedding_matrix(filepath, vocab, embedding_dim):
+def create_embedding_matrix(filepath):
     'Create embedding matrix to given vocab'
-    vocab_size = len(vocab)
-    embedding_matrix = np.zeros([vocab_size, embedding_dim])
+    vocab = []
+    embedding_matrix = []
 
     with open(filepath) as f:
         for line in tqdm(f):
             word, *vector = line.split()
-            try:
-                embedding_matrix[__index(vocab, word)] = np.array(vector, dtype=np.float32)
-            except ValueError:
-                pass
+            embedding_matrix.append(np.array(vector, dtype=np.float32))
+            vocab.append(word)
 
-    return embedding_matrix
+    vocab.append("[PAD]")
+    embedding_matrix = np.vstack(embedding_matrix)
+    pad_vec = np.zeros((1, embedding_matrix.shape[1]))
+    embedding_matrix = np.vstack([embedding_matrix, pad_vec])
+    vocab = np.array(vocab)
+    
+    sorter = np.argsort(vocab)
+
+    vocab = vocab[sorter]
+    embedding_matrix = embedding_matrix[sorter]
+
+    return embedding_matrix, vocab.tolist()
 
 
 def load_vocab(filepath):
@@ -51,35 +60,11 @@ def lookup_embeddings(text, vocab, embedding_matrix):
     for iword, word in enumerate(text):
         for token in tokenizer(str(word)):
             try:
-                embeddings[iword] = embedding_matrix[__index(vocab, word)]
+                embeddings[iword] = embedding_matrix[index_sorted_list(vocab, word)]
             except ValueError:
                 pass
 
     return embeddings
-
-
-def data_padding(word_seq, max_len=1000):
-    input_data = tr.zeros([word_seq.shape[0], max_len], dtype=tr.int64)
-    for i in range(word_seq.shape[0]):
-        input_data[i, :len(word_seq[i])] = tr.Tensor(word_seq[i][:max_len])
-
-    return input_data
-
-
-def tokenize_data(comments, vocab, max_sentences=1000, REVIEWS=True):
-    max_sentences = np.min([max_sentences, len(comments)])
-    if not REVIEWS:
-        y = np.array(labels[:max_sentences])
-    word_seq = np.empty(max_sentences, dtype=object)
-
-    for idx, sen in tqdm(enumerate(comments[:max_sentences])):
-        #     doc = nlp(str(sen))
-        word_seq[idx] = []
-        for token in tokenizer(str(sen)):
-            if (token.lemma_.lower() in vocab):
-                word_seq[idx].append(__index(vocab, token.lemma_.lower()))
-
-    return word_seq
 
 
 data_identifier_dict = {
