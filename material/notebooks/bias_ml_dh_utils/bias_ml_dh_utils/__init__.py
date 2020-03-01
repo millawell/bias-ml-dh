@@ -22,10 +22,14 @@ def create_embedding_matrix(filepath):
     embedding_matrix = []
 
     with open(filepath) as f:
-        for line in tqdm(f):
+        for iline, line in tqdm(enumerate(f)):
             word, *vector = line.split()
+            if "\xa0" in line:
+                continue
+
             embedding_matrix.append(np.array(vector, dtype=np.float32))
             vocab.append(word)
+
 
     vocab.append("[PAD]")
     embedding_matrix = np.vstack(embedding_matrix)
