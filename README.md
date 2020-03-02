@@ -9,11 +9,16 @@ Ressourcen für den Workshop "Bias in Datensätzen und ML-Modellen: Erkennung un
 
 ## Practical sessions
 
+[Download data](https://github.com/millawell/bias-ml-dh/blob/master/material/notebooks/Download_data.ipynb)
+
 [Session 1.1](https://github.com/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.1.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.1.ipynb)
 
 [Session 1.2](https://github.com/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.2.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.2.ipynb)
+[Session 1.2 Solution](https://github.com/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.2_Solution.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.2_Solution.ipynb)
+
 
 [Session 1.3](https://github.com/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.3.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/millawell/bias-ml-dh/blob/master/material/notebooks/Session_1.3.ipynb)
