@@ -27,7 +27,7 @@ Mitigating gender bias in natural language processing: Literature review. arXiv 
 * Zhang, B. H., Lemoine, B., und Mitchell, M. (2018): Mitigating unwanted biases with adversarial learning. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.
 * Zhao, J., Wang, T., Yatskar, M., Ordonez, V., und Chang, K. W. (2018): Gender bias in coreference resolution: Evaluation and debiasing methods. arXiv preprint arXiv:1804.06876.
 # 1800
-Eun Seo Jo, Timnit Gebru.[Lessons from Archives: Strategies for Collecting Sociocultural Data in Machine Learning](https://arxiv.org/abs/1912.10389)
+* Eun Seo Jo, Timnit Gebru.[Lessons from Archives: Strategies for Collecting Sociocultural Data in Machine Learning](https://arxiv.org/abs/1912.10389)
 * Bode, Katherine (Forthcoming 2020): Why You Can’t Model Away Bias, Modern Language Quarterly 81.1. preprint: katherinebode.files.wordpress.com/2019/08/mlq2019_preprintbode_why.pdf [letzter Zugriff 27. September 2019].
 # Data
 * Davidson, Thomas, Debasmita Bhattacharya und Ingmar Weber (2019): Racial Bias in Hate Speech and Abusive Language Detection Datasets. arXiv preprint arXiv:1905.12516.
