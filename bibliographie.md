@@ -4,6 +4,7 @@
 * Bode, Katherine (Forthcoming 2020): Why You Can’t Model Away Bias, Modern Language Quarterly 81.1. preprint: katherinebode.files.wordpress.com/2019/08/mlq2019_preprintbode_why.pdf [letzter Zugriff 27. September 2019].
 # Detecting Bias
 * Buolamwini, Joy, und Timnit Gebru (2018): Gender shades: Intersectional accuracy disparities in commercial gender classification. Conference on fairness, accountability and transparency.
+* Suresh, Harini, and John V. Guttag. "A framework for understanding unintended consequences of machine learning." arXiv preprint arXiv:1901.10002 (2019).
 * Caliskan, Aylin, Joanna J. Bryson und Arvind Narayanan. (2017): Semantics derived automatically from language corpora contain human-like biases. Science 356.
 * Garg, Nikhil, Londa Schiebinger, Dan Jurafsky und James Zou (2018): Word embeddings quantify 100 years of gender and ethnic stereotypes. Proceedings of the National Academy of Sciences.
 * May, Chandler, Alex Wang, Shikha Bordia, Samuel R. Bowman und Rachel Rudinger (2019): On Measuring Social Biases in Sentence Encoders. Conference of the NAACL.
