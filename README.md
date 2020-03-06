@@ -7,6 +7,11 @@ Ressourcen für den Workshop "Bias in Datensätzen und ML-Modellen: Erkennung un
 * [website](http://bias-ml-dh.davidlassner.com/)
 * [bibliographie](https://github.com/millawell/bias-ml-dh/blob/master/bibliographie.md)
 
+## Presentation slides
+* [Defining and detecting bias - David Lassner](https://github.com/millawell/bias-ml-dh/blob/master/material/slides/Defining%20and%20Detecting%20Bias.pdf)
+* [Bias Mitigation - Stephanie Brandl](https://github.com/millawell/bias-ml-dh/blob/master/material/slides/Bias%20Mitigtation.pdf)
+* [Bias in DH: Female authors from around 1800 - Anne Baillot](https://github.com/millawell/bias-ml-dh/blob/master/material/slides/Female%20authors%20from%20around%201800.pdf)
+
 ## Practical sessions
 
 [Download data](https://github.com/millawell/bias-ml-dh/blob/master/material/notebooks/Download_data.ipynb)
