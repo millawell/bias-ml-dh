@@ -6,7 +6,8 @@ import spacy
 from lxml import html
 from getpass import getpass
 nlp = spacy.load("en_core_web_sm")
-tokenizer = nlp.Defaults.create_tokenizer(nlp)
+# tokenizer = nlp.Defaults.create_tokenizer(nlp)
+tokenizer = nlp.tokenizer
 
 def index_sorted_list(a, x):
     'Locate the leftmost value exactly equal to x'
